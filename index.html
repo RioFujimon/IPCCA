@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>IPCCA</title>
+</head>
+<body>
+    <div id="app">
+        <v-app id="inspire">
+            <template>
+                <v-card>
+                  <v-toolbar
+                    color="teal accent-4"
+                    dark
+                    centered
+                  >
+
+                    <v-toolbar-title>
+                        <strong>IPCCA( iBELLEs+ Csv Convert Application )</strong>
+                    </v-toolbar-title>
+
+		    <v-row
+		      align-content="end" justify="end"
+		    >
+
+		      <img style="float: right;" src="https://www.mext.go.jp/a_menu/shinkou/hojyo/__icsFiles/artimage/2012/06/13/c_scn04_04/KAKENHIlogoS.jpg" ></img>
+
+		    </v-row>
+		    		    
+                    <template v-slot:extension>
+                      <v-tabs
+                        v-model="tab"
+                        centered
+                        slider-color="yellow"
+                      >
+                        <v-tab
+                          to="/createAnalysisFile"
+                          v-on:click="isPage = true"
+                        >
+                            <strong>
+                                解析用ファイル作成ページ
+                            </strong>
+                        </v-tab>
+                        <v-tab
+                          to="/calculateAnalysisFile"
+                          v-on:click="isPage = false"
+                        >
+                            <strong >
+                                解析用ファイル計算ページ
+                            </strong>
+                        </v-tab>
+                      </v-tabs>
+                    </template>
+                  </v-toolbar>
+                </v-card>
+            </template>
+
+            <div class="card">
+              <v-card
+                elevation=10
+                height=500
+                width=865
+              >
+                <v-card-title>
+                  <strong>
+                    使用方法
+                  </strong>
+                </v-card-title>
+                <!-- ルートとマッチしたコンポーネントがここへ描画 -->
+                  <router-view></router-view>
+
+                  <v-dialog v-model="dialog"　width=500>
+                    <!-- アクティベータースロット -->
+                      <template v-slot:activator="{ on, attrs }">
+                        <div class="btn_wraper">
+                          <v-btn color="yellow" v-on="on" v-bind="attrs">
+                            <v-icon
+                              middle
+                              color="black"
+                            >
+                            mdi-help-circle-outline
+                            </v-icon>
+                            <strong>ヘルプ</strong>
+                          </v-btn>
+                        </div>
+                      </template>
+                
+                      <v-card elevation=10 height=500 width=500>
+                        <v-card-title class="headline teal accent-4">
+                          <v-icon
+                              middle
+                              color="black"
+                            >
+                            mdi-help-circle-outline
+                            </v-icon>
+                            <strong>ヘルプ</strong>
+                        </v-card-title>
+                
+                        <v-card-text v-if="isPage">
+                          ・解析用ファイル名は〇〇〇.csvの形式で入力してください
+                        </v-card-text>
+                        <v-card-text v-if="isPage">
+                          ・CSVファイルを選択せずに「解析用ファイル作成ボタン」を押した場合、メッセージが表示されます
+                        </v-card-text>
+                        <v-card-text v-if="isPage == false">
+                          ・解析後ファイル名は〇〇〇.csvの形式で入力してください
+                        </v-card-text>
+                        <v-card-text v-if="isPage == false">
+                          ・CSVファイルを選択せずに「解析ボタン」を押した場合、メッセージが表示されます
+                        </v-card-text>
+                        <v-card-text v-if="isPage == false">
+                          ・計算方法を選択せずに「解析ボタン」を押すとメッセージが表示されます
+                        </v-card-text>
+                        <v-card-text v-if="isPage == false">
+                          ・「ノーマライゼーションをされたファイルどうし」または「ノーマライゼーションされていないファイルどうし」ではない場合、解析ができません
+                        </v-card-text>
+                        <v-divider></v-divider>
+  
+                        <v-card-actions>
+                          <v-spacer></v-spacer>
+                          <v-btn color="primary" text @click="dialog = false">
+                            閉じる
+                          </v-btn>
+                        </v-card-actions>
+                      </v-card>
+                  </v-dialog>
+                </v-card>
+                </v-card>
+            </div>
+
+          <template>
+            <footer>
+              <strong>&copy;2020 Sakamoto Lab</strong>
+            </footer>
+          </template>
+
+        </v-app>
+    </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+      <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+      <script src="./index.js"></script>
+</body>
+</html>

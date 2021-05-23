@@ -1,0 +1,53 @@
+<?php
+echo '<!DOCTYPE html>';
+echo '<html lang="ja">';
+echo '<head>';
+    echo '<meta charset="UTF-8">';
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
+    echo '<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">';
+    echo '<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">';
+    echo '<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">';
+    echo '<link rel="stylesheet" href="./style.css">';
+    echo '<title>Csv Analysis Web Application</title>';
+echo '</head>';
+echo '<body>';
+    echo '<div id="app">';
+        echo '<v-app>';
+            echo '<template>';
+                echo '<v-card>';
+                  echo '<v-toolbar color="teal accent-4" dark centered>';
+                    echo '<v-toolbar-title>';
+                        echo '<strong>Csv Analysis Web Application</strong>';
+                    echo '</v-toolbar-title>';
+                  echo '</v-toolbar>';
+                echo '</v-card>';
+            echo '</template>';
+
+            echo '<div class="card">';
+              echo '<v-card elevation=10 height=500 width=500>';
+                echo '<v-card-title>';
+                  echo '<strong>';
+                    echo 'ファイル解析結果';
+                  echo '</strong>';
+                echo '</v-card-title>';
+                  session_start();
+                  require('./analysis.php');
+              echo '</v-card>';
+            echo '</div>';
+
+            echo '<template>';
+                echo '<v-footer absolute="true" dark color="grey darken-3" height=80>';
+                    echo '<v-col class="text-center" cols="12">';
+                    echo '<strong>&copy;2020 Sakamoto Lab</strong>';
+                    echo '</v-col>';
+                echo '</v-footer>';
+            echo '</template>';
+        echo '</v-app>';
+    echo '</div>';
+      echo '<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>';
+      echo '<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>';
+      echo '<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>';
+      echo '<script src="./index.js"></script>';
+echo '</body>';
+echo '</html>';
+?>

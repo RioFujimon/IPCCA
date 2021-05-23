@@ -1,0 +1,245 @@
+.card {
+  vertical-align: middle;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+}
+
+.input_file {
+  height: 35px;
+  width: 280px
+}
+
+.input_file_wraper {
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+}
+
+.btn_wraper {
+  text-align: center;
+  padding: 5px;
+}
+
+.memo {
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  width: 460px;
+}
+
+.memo_wraper {
+  text-align: center;
+  padding: 5px;
+}
+
+.text {
+  color: black;
+}
+
+.left-space {
+  padding-left: 20px;
+}
+
+.a_wraper {
+  text-align: center;
+  padding: auto;
+}
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 80px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+.header_wrapper {
+  background-color: #00BFA5;
+  color: white;
+  height: 115px;
+  font-size: 17px;
+  padding-top: 18px;
+  padding-left: 16px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .3);
+}
+
+footer {
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+  font-size: 20px;
+  background-color: #424242;
+  color: white;
+  height: auto;
+  text-align: center;
+  width: 100%;
+  padding: 1%;
+}
+
+.err_msg {
+  text-align: left;
+  padding-left: 5%;
+}
+
+.main_wrapper {
+  padding-top: 20px;
+}
+
+
+.cp_ipselect {
+	overflow: hidden;
+	width: 90%;
+	margin: 2em auto;
+	text-align: center;
+}
+.cp_ipselect select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+    display: none;
+}
+.cp_ipselect.cp_sl01 {
+	position: relative;
+	border: 1px solid #bbbbbb;
+	border-radius: 2px;
+	background: #ffffff;
+}
+.cp_ipselect.cp_sl01::before {
+	position: absolute;
+	top: 0.8em;
+	right: 0.9em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
+}
+.cp_ipselect.cp_sl01 select {
+	padding: 8px 38px 8px 8px;
+	color: #666666;
+}
+
+table {
+  padding: 1%;
+}
+
+table th, table td{
+    border:solid 2px black;
+}
+
+th{
+    background-color: #00BFA5;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+input[type=radio], input[type=checkbox] {
+  display: none;
+}
+input[type=radio] + label, input[type=checkbox] + label {
+  position: relative;
+  padding-left: 20px;
+}
+
+input[type=checkbox] + label::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #9E9E9E;
+  border-radius: 2px;
+  transition: .2s;
+}
+input[type=checkbox]:checked + label::before {
+  border: 8px solid #009688;
+}
+input[type=checkbox] + label::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 11px;
+  left: 3px;
+  width: 0;
+  height: 0;
+  transform: rotate(-45deg);
+  transform-origin: left top;
+  border-left: 2px solid #FFF;
+  border-bottom: 2px solid #FFF;
+  visibility: hidden;
+}
+input[type=checkbox]:checked + label::after {
+  animation: check .175s ease .2s 1 normal forwards;
+}
+@keyframes check {
+  0% {
+      visibility: visible;
+      width: 0;
+      height: 0;
+  }
+  40% {
+      width: 0;
+      height: 8px;
+  }
+  100% {
+      visibility: visible;
+      width: 12px;
+      height: 8px;
+  }
+}
+
+input[type=radio] + label::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #9E9E9E;
+  border-radius: 50%;
+  transition: .2s;
+}
+input[type=radio]:checked + label::before {
+  border: 2px solid #009688;
+}
+input[type=radio] + label::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 8px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: #009688;
+  border-radius: 50%;
+  transform: scale(0);    
+  transition: .175s;
+}
+input[type=radio]:checked + label::after {
+  transform: scale(1);
+}
